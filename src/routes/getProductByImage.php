@@ -29,6 +29,11 @@ $app->post('/api/ThreadGenius/getProductByImage', function ($request, $response)
 
     $requestParams = \Models\Params::createRequestBody($data, $bodyParams);
     $requestParams['auth'] = [$data['apiKey'],''];
+
+    if(!empty($data['imageUrl']))
+    {
+        $requestParams['json']['image']['imageUrl'] = $data['imageUrl'];
+    }
      
 
     try {

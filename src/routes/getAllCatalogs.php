@@ -27,6 +27,7 @@ $app->post('/api/ThreadGenius/getAllCatalogs', function ($request, $response) {
     
 
     $requestParams = \Models\Params::createRequestBody($data, $bodyParams);
+    $requestParams['auth'] = [$data['apiKey'],''];
 
 
 

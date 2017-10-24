@@ -183,10 +183,4 @@ Use this endpoint to perform a visual search over a catalog.
 | catalogId     | String     | Catalog id.(gid)
 | imageUrl      | File       | The URL of the image.
 
-## ThreadGenius.getHistoricalUsage
-Use this endpoint to get your historical usage summary. Summaries are keyed by the month-year in which the API requests were made.Only successful requests get counted (e.g. catalog objects that failed to index don’t get logged in your usage summary).
-
-| Field | Type       | Description
-|-------|------------|----------
-| apiKey| credentials| Your API key.
 
