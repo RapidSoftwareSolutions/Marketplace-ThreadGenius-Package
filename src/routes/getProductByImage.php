@@ -32,7 +32,7 @@ $app->post('/api/ThreadGenius/getProductByImage', function ($request, $response)
 
     if(!empty($data['imageUrl']))
     {
-        $requestParams['json']['image']['imageUrl'] = $data['imageUrl'];
+        $requestParams['json']['image']['url'] = $data['imageUrl'];
     }
      
 
