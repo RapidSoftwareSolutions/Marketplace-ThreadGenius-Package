@@ -1,0 +1,870 @@
+{
+    "package": "ThreadGenius",
+    "tagline": "ThreadGenius API",
+    "description": "Thread Genius is the best visual search and image recognition API for style-focused applications.Traditional search engines are great for documents and articles, but when it comes to visual items like products or style inspiration, they aren\u2019t intuitive enough.Thread Genius helps you build a smarter and more pleasurable experience for discovering content on your app or website.",
+    "image": "https:\/\/logo.clearbit.com\/threadgenius.co",
+    "repo": "https:\/\/github.com\/RapidSoftwareSolutions\/Marketplace-ThreadGenius-Package",
+    "keywords": [
+        "API",
+        "Recognition",
+        "Image",
+        "Image",
+        "Visual search"
+    ],
+    "accounts": {
+        "domain": "threadgenius.co",
+        "credentials": [
+            "apiKey"
+        ]
+    },
+    "steps": [
+        "Register on the https:\/\/threadgenius.co",
+        "After register, you will see API key in your dashboard https:\/\/threadgenius.co\/dashboard"
+    ],
+    "blocks": [
+        {
+            "name": "addImage",
+            "description": "Image Input from URL.",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API key.",
+                    "required": true
+                },
+                {
+                    "name": "imageUrl",
+                    "type": "File",
+                    "info": "The URL of the image.",
+                    "required": true,
+                    "vendorSchema": {
+                        "name": "url"
+                    }
+                },
+                {
+                    "name": "cropX1",
+                    "type": "String",
+                    "info": "The percentage crop of the image in order of x1, y1, x2, y2.If you want add crop, required all four crop field.",
+                    "required": false
+                },
+                {
+                    "name": "cropX2",
+                    "type": "String",
+                    "info": "The percentage crop of the image in order of x1, y1, x2, y2.If you want add crop, required all four crop field.",
+                    "required": false
+                },
+                {
+                    "name": "cropY1",
+                    "type": "String",
+                    "info": "The percentage crop of the image in order of x1, y1, x2, y2.If you want add crop, required all four crop field.",
+                    "required": false
+                },
+                {
+                    "name": "cropY2",
+                    "type": "String",
+                    "info": "The percentage crop of the image in order of x1, y1, x2, y2.If you want add crop, required all four crop field.",
+                    "required": false
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/api.threadgenius.co\/v1\/prediction\/tag",
+                "method": "post",
+                "requestParameters": [
+                    {
+                        "type": "json",
+                        "parameters": [
+                            "url"
+                        ]
+                    }
+                ]
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "createCatalog",
+            "description": "Use this endpoint to create a new empty catalog.",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API key.",
+                    "required": true
+                },
+                {
+                    "name": "catalogName",
+                    "type": "String",
+                    "info": "Catalog name.",
+                    "required": true,
+                    "vendorSchema": {
+                        "name": "name"
+                    }
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/api.threadgenius.co\/v1\/catalog",
+                "method": "post",
+                "requestParameters": [
+                    {
+                        "type": "json",
+                        "parameters": [
+                            "name"
+                        ]
+                    }
+                ]
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "getAllCatalogs",
+            "description": "Use this endpoint to list all catalogs.",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API key.",
+                    "required": true
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/api.threadgenius.co\/v1\/catalog",
+                "method": "get",
+                "requestParameters": []
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "getCatalog",
+            "description": "Use this endpoint to get a specific catalog.",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API key.",
+                    "required": true
+                },
+                {
+                    "name": "catalogId",
+                    "type": "String",
+                    "info": "Catalog id.(gid)",
+                    "required": true
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/api.threadgenius.co\/v1\/catalog\/{$data['catalogId']}",
+                "method": "get",
+                "requestParameters": []
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "deleteCatalog",
+            "description": "Use this endpoint to delete a specific catalog.",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API key.",
+                    "required": true
+                },
+                {
+                    "name": "catalogId",
+                    "type": "String",
+                    "info": "Catalog id.(gid)",
+                    "required": true
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/api.threadgenius.co\/v1\/catalog\/{$data['catalogId']}",
+                "method": "delete",
+                "requestParameters": []
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "addObjectToCatalog",
+            "description": "Use this endpoint to add a list of objects to a specific catalog. Objects are added and indexed asynchronously.",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API key.",
+                    "required": true
+                },
+                {
+                    "name": "catalogId",
+                    "type": "String",
+                    "info": "Catalog id.(gid)",
+                    "required": true
+                },
+                {
+                    "name": "imageObject",
+                    "type": "Array",
+                    "structure": [
+                        {
+                            "name": "imageUrl",
+                            "type": "File",
+                            "info": "The URL of the image.",
+                            "required": true
+                        },
+                        {
+                            "name": "cropX1",
+                            "type": "String",
+                            "info": "The percentage crop of the image in order of x1, y1, x2, y2.If you want add crop, required all four crop field.",
+                            "required": false
+                        },
+                        {
+                            "name": "cropX2",
+                            "type": "String",
+                            "info": "The percentage crop of the image in order of x1, y1, x2, y2.If you want add crop, required all four crop field.",
+                            "required": false
+                        },
+                        {
+                            "name": "cropY1",
+                            "type": "String",
+                            "info": "The percentage crop of the image in order of x1, y1, x2, y2.If you want add crop, required all four crop field.",
+                            "required": false
+                        },
+                        {
+                            "name": "cropY2",
+                            "type": "String",
+                            "info": "The percentage crop of the image in order of x1, y1, x2, y2.If you want add crop, required all four crop field.",
+                            "required": false
+                        }
+                    ],
+                    "info": "Image object.Up to 32 images in a single request.",
+                    "required": true
+                },
+                {
+                    "name": "metadata",
+                    "type": "JSON",
+                    "info": "Additional JSON-formatted metadata associated with the object.See more in readme.",
+                    "required": false
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/api.threadgenius.co\/v1\/catalog\/{$data['catalogId']}\/object",
+                "method": "post",
+                "requestParameters": []
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "getObjectFromCatalog",
+            "description": "Use this endpoint to get information about a specific object from a catalog.",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API key.",
+                    "required": true
+                },
+                {
+                    "name": "catalogId",
+                    "type": "String",
+                    "info": "Catalog id.(gid)",
+                    "required": true
+                },
+                {
+                    "name": "objectId",
+                    "type": "String",
+                    "info": "Object id.(gid)",
+                    "required": true
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/api.threadgenius.co\/v1\/catalog\/{$data['catalogId']}\/object\/{$data['objectId']}",
+                "method": "get",
+                "requestParameters": []
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "deleteObjectFromCatalog",
+            "description": "Use this endpoint to delete a specific object from a catalog.",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API key.",
+                    "required": true
+                },
+                {
+                    "name": "catalogId",
+                    "type": "String",
+                    "info": "Catalog id.(gid)",
+                    "required": true
+                },
+                {
+                    "name": "objectId",
+                    "type": "String",
+                    "info": "Object id.(gid)",
+                    "required": true
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/api.threadgenius.co\/v1\/catalog\/{$data['catalogId']}\/object\/{$data['objectId']}",
+                "method": "delete",
+                "requestParameters": []
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "getAllObjectsFromCatalog",
+            "description": "Use this endpoint to page through all objects within a catalog.",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API key.",
+                    "required": true
+                },
+                {
+                    "name": "catalogId",
+                    "type": "String",
+                    "info": "Catalog id.(gid)",
+                    "required": true
+                },
+                {
+                    "name": "nextKey",
+                    "type": "String",
+                    "info": "Key to get the next page of results.",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "next_key"
+                    }
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/api.threadgenius.co\/v1\/catalog\/{$data['catalogId']}\/object",
+                "method": "get",
+                "requestParameters": [
+                    {
+                        "type": "json",
+                        "parameters": [
+                            "next_key"
+                        ]
+                    }
+                ]
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "predictTagsForImage",
+            "description": "Predict tags for a single image.Thread Genius can predict either tags or bounding boxes around items. Tags are concepts our machine learning model thinks are present within the image input(s).",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API key.",
+                    "required": true
+                },
+                {
+                    "name": "imageUrl",
+                    "type": "File",
+                    "info": "The URL of the image.",
+                    "required": true
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/api.threadgenius.co\/v1\/prediction\/tag",
+                "method": "post",
+                "requestParameters": []
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "predictTagsForImages",
+            "description": "Use the following endpoint to predict tags for multiple images. Batch predictions are placed on a queue. In the response, you\u2019ll get prediction gids, which are identifiers for checking up on the status of a prediction. Predictions have a TTL of 3 days.",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API key.",
+                    "required": true
+                },
+                {
+                    "name": "imageUrls",
+                    "type": "List",
+                    "structure": {
+                        "name": "imageUrl",
+                        "type": "File",
+                        "info": "Single image url."
+                    },
+                    "info": "The URLs of the images.Up to 32 images in a single request.",
+                    "required": true
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/api.threadgenius.co\/v1\/prediction\/tag",
+                "method": "post",
+                "requestParameters": []
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "getTagPrediction",
+            "description": "Tag predictions made with more than one image input are placed in a queue to be processed for later. You can check up on the status of these predictions using the following endpoint.",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API key.",
+                    "required": true
+                },
+                {
+                    "name": "tagPredictionId",
+                    "type": "String",
+                    "info": "Tag prediction id.(gid)",
+                    "required": true
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/api.threadgenius.co\/v1\/prediction\/tag\/{$data['tagPredictionId']}",
+                "method": "get",
+                "requestParameters": []
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "getAllTagPredictions",
+            "description": "You can page through all tag predictions from the last 3 days by using the following endpoint.",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API key.",
+                    "required": true
+                },
+                {
+                    "name": "nextKey",
+                    "type": "String",
+                    "info": "Key to get the next page of results.",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "next_key"
+                    }
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/api.threadgenius.co\/v1\/prediction\/tag",
+                "method": "get",
+                "requestParameters": [
+                    {
+                        "type": "json",
+                        "parameters": [
+                            "next_key"
+                        ]
+                    }
+                ]
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "detectItemsOnImage",
+            "description": "Use the following endpoint to predict bounding boxes around items of interest within a single image.",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API key.",
+                    "required": true
+                },
+                {
+                    "name": "imageUrl",
+                    "type": "File",
+                    "info": "The URL of the image.",
+                    "required": true
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/api.threadgenius.co\/v1\/prediction\/detect",
+                "method": "post",
+                "requestParameters": []
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "detectItemsOnImages",
+            "description": "Use the following endpoint to predict bounding boxes around items of interest within multiple images. In the response, you\u2019ll get prediction gids, which are identifiers for checking up on the status of a prediction. Predictions have a TTL of 3 days.",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API key.",
+                    "required": true
+                },
+                {
+                    "name": "imageUrls",
+                    "type": "List",
+                    "structure": {
+                        "name": "imageUrl",
+                        "type": "File",
+                        "info": "Single image url."
+                    },
+                    "info": "The URLs of the images.Up to 5 images in a single request.",
+                    "required": true
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/api.threadgenius.co\/v1\/prediction\/detect",
+                "method": "post",
+                "requestParameters": []
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "getDetectPrediction",
+            "description": "Detect predictions made with more than one image input are placed in a queue to be processed for later. You can check up on the status of these predictions using the following endpoint.",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API key.",
+                    "required": true
+                },
+                {
+                    "name": "predictionId",
+                    "type": "String",
+                    "info": "Prediction id (gid).",
+                    "required": true
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/api.threadgenius.co\/v1\/prediction\/detect\/{$data['predictionId']}",
+                "method": "get",
+                "requestParameters": []
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "getAllDetectPredictions",
+            "description": "You can page through all detect predictions from the last 3 days by using the following endpoint.",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API key.",
+                    "required": true
+                },
+                {
+                    "name": "nextKey",
+                    "type": "String",
+                    "info": "Key to get the next page of results.",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "next_key"
+                    }
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/api.threadgenius.co\/v1\/prediction\/detect",
+                "method": "get",
+                "requestParameters": [
+                    {
+                        "type": "json",
+                        "parameters": [
+                            "next_key"
+                        ]
+                    }
+                ]
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "getProductByPredictedKeywords",
+            "description": "Use this endpoint to search a catalog by keywords predicted by our machine learning model.",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API key.",
+                    "required": true
+                },
+                {
+                    "name": "numberOfResult",
+                    "type": "Number",
+                    "info": "Specifying the number of results (default is 50). Results come back sorted by relevancy.",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "n_results"
+                    }
+                },
+                {
+                    "name": "catalogId",
+                    "type": "String",
+                    "info": "Catalog id.(gid)",
+                    "required": true
+                },
+                {
+                    "name": "keywords",
+                    "type": "List",
+                    "structure": {
+                        "name": "keyword",
+                        "type": "String",
+                        "info": "Single keyword."
+                    },
+                    "info": "List of keywords for search.Maximum - 5.",
+                    "required": true
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/api.threadgenius.co\/v1\/catalog\/{$data['catalogId']}\/search",
+                "method": "post",
+                "requestParameters": [
+                    {
+                        "type": "json",
+                        "parameters": [
+                            "keywords",
+                            "n_results"
+                        ]
+                    }
+                ]
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "getProductByImage",
+            "description": "Use this endpoint to perform a visual search over a catalog.",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API key.",
+                    "required": true
+                },
+                {
+                    "name": "numberOfResult",
+                    "type": "Number",
+                    "info": "Specifying the number of results (default is 50). Results come back sorted by relevancy.",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "n_results"
+                    }
+                },
+                {
+                    "name": "catalogId",
+                    "type": "String",
+                    "info": "Catalog id.(gid)",
+                    "required": true
+                },
+                {
+                    "name": "imageUrl",
+                    "type": "File",
+                    "info": "The URL of the image.",
+                    "required": true
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/api.threadgenius.co\/v1\/catalog\/{$data['catalogId']}\/search",
+                "method": "post",
+                "requestParameters": [
+                    {
+                        "type": "json",
+                        "parameters": [
+                            "n_results"
+                        ]
+                    }
+                ]
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "getHistoricalUsage",
+            "description": "Use this endpoint to get your historical usage summary. Summaries are keyed by the month-year in which the API requests were made.Only successful requests get counted (e.g. catalog objects that failed to index don\u2019t get logged in your usage summary).",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API key.",
+                    "required": true
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/api.threadgenius.co\/v1\/usage",
+                "method": "get",
+                "requestParameters": []
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        }
+    ]
+}
