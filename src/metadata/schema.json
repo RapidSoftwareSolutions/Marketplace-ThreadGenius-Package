@@ -42,25 +42,25 @@
             {
                 "name": "cropX1",
                 "type": "String",
-                "info": "The percentage crop of the image in order of x1, y1, x2, y2.If you want add crop, required all four crop field.",
+                "info": "The percentage crop of the image in order.If you want add crop, required all four crop field.",
                 "required": false
             },
             {
                 "name": "cropX2",
                 "type": "String",
-                "info": "The percentage crop of the image in order of x1, y1, x2, y2.If you want add crop, required all four crop field.",
+                "info": "The percentage crop of the image in order.If you want add crop, required all four crop field.",
                 "required": false
             },
             {
                 "name": "cropY1",
                 "type": "String",
-                "info": "The percentage crop of the image in order of x1, y1, x2, y2.If you want add crop, required all four crop field.",
+                "info": "The percentage crop of the image in order.If you want add crop, required all four crop field.",
                 "required": false
             },
             {
                 "name": "cropY2",
                 "type": "String",
-                "info": "The percentage crop of the image in order of x1, y1, x2, y2.If you want add crop, required all four crop field.",
+                "info": "The percentage crop of the image in order.If you want add crop, required all four crop field.",
                 "required": false
             }
         ],
@@ -256,25 +256,25 @@
                         {
                             "name": "cropX1",
                             "type": "String",
-                            "info": "The percentage crop of the image in order of x1, y1, x2, y2.If you want add crop, required all four crop field.",
+                            "info": "The percentage crop of the image in order.If you want add crop, required all four crop field.",
                             "required": false
                         },
                         {
                             "name": "cropX2",
                             "type": "String",
-                            "info": "The percentage crop of the image in order of x1, y1, x2, y2.If you want add crop, required all four crop field.",
+                            "info": "The percentage crop of the image in order.If you want add crop, required all four crop field.",
                             "required": false
                         },
                         {
                             "name": "cropY1",
                             "type": "String",
-                            "info": "The percentage crop of the image in order of x1, y1, x2, y2.If you want add crop, required all four crop field.",
+                            "info": "The percentage crop of the image in order.If you want add crop, required all four crop field.",
                             "required": false
                         },
                         {
                             "name": "cropY2",
                             "type": "String",
-                            "info": "The percentage crop of the image in order of x1, y1, x2, y2.If you want add crop, required all four crop field.",
+                            "info": "The percentage crop of the image in order.If you want add crop, required all four crop field.",
                             "required": false
                         }
                     ],

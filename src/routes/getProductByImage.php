@@ -20,7 +20,11 @@ $app->post('/api/ThreadGenius/getProductByImage', function ($request, $response)
 
     $data = \Models\Params::createParams($requiredParams, $optionalParams, $post_data['args']);
 
-    
+    if(!empty($data['n_results']))
+    {
+        $data['n_results'] = (int) $data['n_results'];
+    }
+
 
     $client = $this->httpClient;
     $query_str = "https://api.threadgenius.co/v1/catalog/{$data['catalogId']}/search";
