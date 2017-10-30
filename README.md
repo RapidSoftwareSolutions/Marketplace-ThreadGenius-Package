@@ -26,10 +26,10 @@ Image Input from URL.
 |---------|------------|----------
 | apiKey  | credentials| Your API key.
 | imageUrl| File       | The URL of the image.
-| cropX1  | String     | The percentage crop of the image in order of x1, y1, x2, y2.If you want add crop, required all four crop field.
-| cropX2  | String     | The percentage crop of the image in order of x1, y1, x2, y2.If you want add crop, required all four crop field.
-| cropY1  | String     | The percentage crop of the image in order of x1, y1, x2, y2.If you want add crop, required all four crop field.
-| cropY2  | String     | The percentage crop of the image in order of x1, y1, x2, y2.If you want add crop, required all four crop field.
+| cropX1  | String     | The percentage crop of the image in order.If you want add crop, required all four crop field.
+| cropX2  | String     | The percentage crop of the image in order.If you want add crop, required all four crop field.
+| cropY1  | String     | The percentage crop of the image in order.If you want add crop, required all four crop field.
+| cropY2  | String     | The percentage crop of the image in order.If you want add crop, required all four crop field.
 
 ## ThreadGenius.createCatalog
 Use this endpoint to create a new empty catalog.
