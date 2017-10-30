@@ -247,9 +247,10 @@
                 {
                     "name": "imageObject",
                     "type": "Array",
-                    "structure": [{
+                    "structure": [
+                        {
                         "name": "imageUrl",
-                        "type": "File",
+                        "type": "String",
                         "info": "The URL of the image.",
                         "required": true
                     },
