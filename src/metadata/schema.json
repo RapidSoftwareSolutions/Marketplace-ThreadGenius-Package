@@ -487,7 +487,7 @@
                     "type": "List",
                     "structure": {
                         "name": "imageUrl",
-                        "type": "File",
+                        "type": "String",
                         "info": "Single image url."
                     },
                     "info": "The URLs of the images.Up to 32 images in a single request.",
@@ -640,7 +640,7 @@
                     "type": "List",
                     "structure": {
                         "name": "imageUrl",
-                        "type": "File",
+                        "type": "String",
                         "info": "Single image url."
                     },
                     "info": "The URLs of the images.Up to 5 images in a single request.",
